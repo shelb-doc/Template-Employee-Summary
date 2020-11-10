@@ -22,6 +22,12 @@ class Questions {
                 name: "confirmEmp",
                 message: "Would you like to add another Employee?",
             },
+            {
+                type: "list",
+                name: "listEmp",
+                message: "What role is the new Employee?",
+                choices:["Engineer", "Intern"]
+            },
         ]
         return confirmEmployee
     }
@@ -63,55 +69,26 @@ class Questions {
         return managerQuestions
     }
 
-//     engineerQuestions() {
-//         const engineerQuestions = [
-//             {
-//                 type: "",
-//                 name: "",
-//                 message: "",
-//             },
-//             {
-//                 type: "input",
-//                 name: "mgrName",
-//                 message: "Hello!, Manager What is your name?",
-//                 default: "Mimikyu Cignetti"
-//             },
-//             {
-//                 type: "input",
-//                 name: "mgrEmail ",
-//                 message: "What is your employee Email?",
-//                 default: "mimikyu@fake.com"
-//             },
-//             {
-//                 type: "input",
-//                 name: "mgrId ",
-//                 message: "What is your employee ID?",
-//                 default: "9987"
-//             },
-//             {
-//                 type: "input",
-//                 name: "mgrOffice",
-//                 message: "What is your employee ID?",
-//                 default: "42"
-//             },
-//         ]
-//         return engineerQuestions
-//     }
+    engineerQuestions() {
+        const engineerQuestions = [
+            {
+                type: "input",
+                name: "github",
+                message: "What is your GitHub Username?",
+            },
+        ]
+        return engineerQuestions
+    }
 
-//     internQuestions() {
-//         const internQuestions = [
-//             {
-//                 type: "confirm",
-//                 name: "startGame",
-//                 message: "Welcome to Team Bulider 9000 | Here we make a Webpage that Generates *YOUR* Team! | Do you want to try this App?",
-//             },
-//             {
-//                 type: "input",
-//                 name: "mgrName",
-//                 message: "Hello!, Intern What is your name?",
-//             }
-//         ]
-//         return internQuestions
-//     }
+    internQuestions() {
+        const internQuestions = [
+            {
+                type: "input",
+                name: "schoolName",
+                message: "What is your School name?",
+            }
+        ]
+        return internQuestions
+    }
 }
 module.exports = Questions;
