@@ -24,8 +24,11 @@ async function init() {
     try {
         const startApp = await q.startQuestion();
         if(startApp.startGame){
+            const empRole = await q.employeeRole();
+            console.log(empRole);
             const empData = await q.employeeQuestions();
             console.log(empData);
+
         }
         console.log(startApp);
     } catch (error) {

@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const Manager = require("./lib/Manager");
 
 
 class Questions {
@@ -15,22 +16,32 @@ class Questions {
         return startResponses
     }
 
-    confirmEmployee(){
+    async confirmEmployee(){
         const confirmEmployee = [
             {
                 type: "confirm",
                 name: "confirmEmp",
                 message: "Would you like to add another Employee?",
-            },
+            }
+        ]
+        return confirmEmployee
+    }
+
+
+    
+    async employeeRole(){
+        const employeeRole = [
             {
                 type: "list",
                 name: "listEmp",
                 message: "What role is the new Employee?",
-                choices:["Engineer", "Intern"]
-            },
+                choices:["Manager","Engineer", "Intern"]
+            }
         ]
-        return confirmEmployee
+        const roleResponses = await inquirer.prompt(employeeRole);
+        return roleResponses
     }
+
 
     async employeeQuestions() {
         const employeeQuestions = [
@@ -38,49 +49,51 @@ class Questions {
                 type: "input",
                 name: "empName",
                 message: "Hello!, What is your name?",
-                default: "Mimikyu Cignetti"
+                default: "Mimikyu Cignetti",
             },
             {
                 type: "input",
                 name: "empEmail",
                 message: "What is your employee Email?",
-                default: "mimikyu@fake.com"
+                default: "mimikyu@fake.com",
             },
             {
                 type: "input",
                 name: "empId",
                 message: "What is your employee ID?",
-                default: "9987"
-            },
+                default: "9987",
+            }
         ]
         const employeeResponses = await inquirer.prompt(employeeQuestions);
-        return  employeeResponses
+        return employeeResponses
     }
 
-    managerQuestions() {
+    async managerQuestions() {
         const managerQuestions = [
             {
                 type: "input",
                 name: "mgrOffice",
                 message: "What is your Office Number?",
                 default: "42"
-            },
+            }
         ]
+        const managerQuestions = await inquirer.prompt(managerQuestions);
         return managerQuestions
     }
 
-    engineerQuestions() {
+    async engineerQuestions() {
         const engineerQuestions = [
             {
                 type: "input",
                 name: "github",
                 message: "What is your GitHub Username?",
-            },
+            }
         ]
+        const engineerQuestions = await inquirer.prompt(engineerQuestions);
         return engineerQuestions
     }
 
-    internQuestions() {
+    async internQuestions() {
         const internQuestions = [
             {
                 type: "input",
@@ -88,6 +101,7 @@ class Questions {
                 message: "What is your School name?",
             }
         ]
+        const internQuestions = await inquirer.prompt(internQuestions);
         return internQuestions
     }
 }
