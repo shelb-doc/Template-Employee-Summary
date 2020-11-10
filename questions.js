@@ -77,8 +77,8 @@ class Questions {
                 default: "42"
             }
         ]
-        const managerQuestions = await inquirer.prompt(managerQuestions);
-        return managerQuestions
+        const managerResponses = await inquirer.prompt(managerQuestions);
+        return managerResponses
     }
 
     async engineerQuestions() {
@@ -89,8 +89,8 @@ class Questions {
                 message: "What is your GitHub Username?",
             }
         ]
-        const engineerQuestions = await inquirer.prompt(engineerQuestions);
-        return engineerQuestions
+        const engineerResponses = await inquirer.prompt(engineerQuestions);
+        return engineerResponses
     }
 
     async internQuestions() {
@@ -101,8 +101,8 @@ class Questions {
                 message: "What is your School name?",
             }
         ]
-        const internQuestions = await inquirer.prompt(internQuestions);
-        return internQuestions
+        const internResponses = await inquirer.prompt(internQuestions);
+        return internResponses
     }
 }
 module.exports = Questions;

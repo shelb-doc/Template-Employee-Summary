@@ -23,16 +23,28 @@ const q = new Questions
 async function init() {
     try {
         const startApp = await q.startQuestion();
-        if(startApp.startGame){
-            const empRole = await q.employeeRole();
-            console.log(empRole);
+        if(startApp.startGame)
+            var empRole = await q.employeeRole();
             const empData = await q.employeeQuestions();
+            console.log(empRole);
+            switch(empRole.listEmp) {
+                case 'Manager':
+                    var roleData = await q.managerQuestions();
+                    newEmployee = new Manager(empData.empName, empData.empEmail, empData.empId, roleData.mgrOffice);
+                break;
+                case 'Engineer':
+                    var roleData = await q.engineerQuestions();
+                    newEmployee = new Engineer(empData.empName, empData.empEmail, empData.empId, roleData.github);
+                break;
+                case 'Intern':
+                    var roleData = await q.internQuestions();
+                    newEmployee = new Intern(empData.empName, empData.empEmail, empData.empId, roleData.schoolName);
+                break;
+            }
             console.log(empData);
-
-        }
-        console.log(startApp);
-    } catch (error) {
-        console.log(error);
+        console.log(employees);
+        } catch (error) {
+    console.log(error);
     };
 }
 init();
