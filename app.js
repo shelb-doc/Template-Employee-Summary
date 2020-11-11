@@ -19,7 +19,7 @@ var employees = [];
 const q = new Questions
 
 
-
+// start of application
 async function init() {
     try {
         const startApp = await q.startQuestion();
@@ -50,13 +50,11 @@ async function init() {
         } catch (error) {
     console.log(error);
     };
-
+// gets all inputs and renders the HTML
     try {
         let renderedHTML = render(employees);
         fs.writeFileSync('./output/index.html', renderedHTML);
-
-        console.log('Success! Your HTML page has been generated in the docs folder.')
-
+        console.log('Success! Your HTML page has been generated in the Output folder.')
     } catch (error) {
         console.log(error);
     }
