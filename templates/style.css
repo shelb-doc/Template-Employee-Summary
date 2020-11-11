@@ -10,6 +10,18 @@ h1 , h2 {
     font-family: 'Goldman', cursive;
 }
 
+
+.card{
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card-header{
+    background:radial-gradient(circle, #215732, #44883e);
+}
 .card-body{
+    background: #6cc24a;
+}
+.list-group-item {
     font-family: 'Roboto', sans-serif;
 }
