@@ -31,15 +31,15 @@ async function init() {
                 switch(empRole.listEmp) {
                     case 'Manager':
                         var roleData = await q.managerQuestions();
-                        newEmployee = new Manager(empData.empName, empData.empEmail, empData.empId, roleData.mgrOffice);
+                        newEmployee = new Manager(empData.empName, empData.empId, empData.empEmail, roleData.mgrOffice);
                     break;
                     case 'Engineer':
                         var roleData = await q.engineerQuestions();
-                        newEmployee = new Engineer(empData.empName, empData.empEmail, empData.empId, roleData.github);
+                        newEmployee = new Engineer(empData.empName, empData.empId, empData.empEmail, roleData.github);
                     break;
                     case 'Intern':
                         var roleData = await q.internQuestions();
-                        newEmployee = new Intern(empData.empName, empData.empEmail, empData.empId, roleData.schoolName);
+                        newEmployee = new Intern(empData.empName, empData.empId, empData.empEmail, roleData.schoolName);
                     break;
                 }
                 employees.push(newEmployee)
@@ -53,7 +53,7 @@ async function init() {
 // gets all inputs and renders the HTML
     try {
         let renderedHTML = render(employees);
-        fs.writeFileSync('./output/index.html', renderedHTML);
+        fs.writeFileSync(outputPath, renderedHTML);
         console.log('Success! Your HTML page has been generated in the Output folder.')
     } catch (error) {
         console.log(error);
