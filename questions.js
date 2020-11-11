@@ -24,7 +24,8 @@ class Questions {
                 message: "Would you like to add another Employee?",
             }
         ]
-        return confirmEmployee
+        const confirm = await inquirer.prompt(confirmEmployee);
+        return confirm
     }
 
 

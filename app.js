@@ -24,26 +24,29 @@ async function init() {
     try {
         const startApp = await q.startQuestion();
         if(startApp.startGame)
-            var empRole = await q.employeeRole();
-            const empData = await q.employeeQuestions();
-            console.log(empRole);
-            switch(empRole.listEmp) {
-                case 'Manager':
-                    var roleData = await q.managerQuestions();
-                    newEmployee = new Manager(empData.empName, empData.empEmail, empData.empId, roleData.mgrOffice);
-                    employees.push(newEmployee)
-                break;
-                case 'Engineer':
-                    var roleData = await q.engineerQuestions();
-                    newEmployee = new Engineer(empData.empName, empData.empEmail, empData.empId, roleData.github);
-                break;
-                case 'Intern':
-                    var roleData = await q.internQuestions();
-                    newEmployee = new Intern(empData.empName, empData.empEmail, empData.empId, roleData.schoolName);
-                break;
+            var keepRunning = true
+            while (keepRunning) {
+                var empRole = await q.employeeRole();
+                const empData = await q.employeeQuestions();
+                switch(empRole.listEmp) {
+                    case 'Manager':
+                        var roleData = await q.managerQuestions();
+                        newEmployee = new Manager(empData.empName, empData.empEmail, empData.empId, roleData.mgrOffice);
+                    break;
+                    case 'Engineer':
+                        var roleData = await q.engineerQuestions();
+                        newEmployee = new Engineer(empData.empName, empData.empEmail, empData.empId, roleData.github);
+                    break;
+                    case 'Intern':
+                        var roleData = await q.internQuestions();
+                        newEmployee = new Intern(empData.empName, empData.empEmail, empData.empId, roleData.schoolName);
+                    break;
+                }
+                employees.push(newEmployee)
+                console.log(employees);
+                var status = await q.confirmEmployee();
+                keepRunning = status.confirmEmp
             }
-            console.log(empData);
-        console.log(employees);
         } catch (error) {
     console.log(error);
     };
