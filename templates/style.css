@@ -1,0 +1,15 @@
+body{
+    background: #4e4e4e;
+}
+
+.jumbotron{
+    background:linear-gradient(-120deg, #215732, #6cc24a, #44883e, #333333);
+}
+
+h1 , h2 {
+    font-family: 'Goldman', cursive;
+}
+
+.card-body{
+    font-family: 'Roboto', sans-serif;
+}

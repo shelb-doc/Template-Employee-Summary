@@ -9,7 +9,7 @@ class Questions {
             {
                 type: "confirm",
                 name: "startGame",
-                message: "Welcome to Team Bulider 9000 | Here we make a Webpage that Generates *YOUR* Team! | Do you want to try this App?",
+                message: "Welcome to Team Builder 9000 | Here we make a Webpage that Generates *YOUR* Team! | Do you want to try this App?",
             },
         ]
         const startResponses = await inquirer.prompt(startQuestion);
