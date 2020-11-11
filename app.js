@@ -15,7 +15,7 @@ const { start } = require("repl");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const employees = [];
+var employees = [];
 const q = new Questions
 
 
@@ -31,6 +31,7 @@ async function init() {
                 case 'Manager':
                     var roleData = await q.managerQuestions();
                     newEmployee = new Manager(empData.empName, empData.empEmail, empData.empId, roleData.mgrOffice);
+                    employees.push(newEmployee)
                 break;
                 case 'Engineer':
                     var roleData = await q.engineerQuestions();
