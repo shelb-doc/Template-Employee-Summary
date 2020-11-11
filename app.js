@@ -50,5 +50,16 @@ async function init() {
         } catch (error) {
     console.log(error);
     };
-}
+
+    try {
+        let renderedHTML = render(employees);
+        fs.writeFileSync('./output/index.html', renderedHTML);
+
+        console.log('Success! Your HTML page has been generated in the docs folder.')
+
+    } catch (error) {
+        console.log(error);
+    }
+
+};
 init();
